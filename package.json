@@ -37,5 +37,11 @@
   },
   "dependencies": {
     "browserify": "^17.0.0"
-  }
+  },
+  "description": "## Introduction",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": ""
 }

@@ -1,4 +1,5 @@
 const movies = require('../src/data');
+
 const {
   getAllDirectors,
   getMoviesFromDirector,
@@ -293,8 +294,43 @@ describe('Function "orderByYear"', () => {
 // Exercise 6
 // YOUR CODE HERE. Test moviesAverageByCategory()
 describe('Function "moviesAverageByCategory"', () => {
-  it('ADD YOUR CODE IN films.spec.js file', () => {
-    expect(typeof hoursToMinutes).toBe('coffee');
+  it('should calculate the average score for a specified genre', () => {
+    const sampleMovies = [
+      {
+        title: 'Film1',
+        genre: ['Drama'],
+        score: 8.4,
+        title: 'Film2',
+        genre: ['War'],
+        score: 7.7,
+        title: 'Film3',
+        genre: ['Comedy'],
+        score: 6.5,
+        title: 'Film4',
+        genre: ['Drama'],
+        score: 8.9,
+      },
+    ];
+    const result = moviesAverageByCategory(sampleMovies, 'Drama');
+    expect(result).toBe(result);
+  });
+  it('should return Nan if are no movies in this category ', () => {
+    const sampleMovies = [
+      { title: 'Film3', genre: ['Comedy'], score: 6.5 },
+      { title: 'Film4', genre: ['Drama'], score: 8.9 },
+    ];
+    const result = moviesAverageByCategory(sampleMovies, 'War');
+    expect(result).toBeNaN();
+  });
+
+  it('should ignore a film without a score', () => {
+    const sampleMovies = [
+      { title: 'Film1', genre: ['Drama'], score: 8.4 },
+      { title: 'Film2', genre: ['Drama']},
+      { title: 'Film3', genre: ['Drama'], score: 6.5 },
+    ];
+    const result = moviesAverageByCategory(sampleMovies, 'Drama');
+    expect(result).toBe(7.45);
   });
 });
 
